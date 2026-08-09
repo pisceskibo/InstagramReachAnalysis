@@ -4,6 +4,7 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 
 import pandas as pd
 import numpy as np
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import PassiveAggressiveRegressor
 
@@ -21,13 +22,16 @@ def predict_instagram_model(data):
 
     model = PassiveAggressiveRegressor()
     model.fit(xtrain, ytrain)
-    model.score(xtest, ytest)
+    score = model.score(xtest, ytest)
 
-    return model
+    print("R² Score =", score)
+
+    joblib.dump(model, "datasets/instagram_model.pkl")
 
 
 if __name__ == "__main__":
-    instagram_model = predict_instagram_model(instagram_data)
+    # predict_instagram_model(instagram_data)
+    instagram_model = joblib.load("datasets/instagram_model.pkl")
 
     # Features = [['Impressions','Saves', 'Comments', 'Shares', 'Profile Visits', 'Follows']]
     test_features = np.array([[282.0, 233.0, 4.0, 9.0, 165.0, 54.0]])
