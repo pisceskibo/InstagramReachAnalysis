@@ -1,0 +1,8 @@
+pandas
+matplotlib
+seaborn
+plotly
+wordcloud
+scikit-learn
+nbformat
+statsmodels
