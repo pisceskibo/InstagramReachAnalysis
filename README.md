@@ -33,7 +33,7 @@ Bài toán giúp dự đoán tổng lượt Impressions của bài đăng Instag
 | `Caption`        | Nội dung caption của bài đăng        |
 | `Hashtags`       | Các hashtag được sử dụng             |
 
-+ Bộ dữ liệu: dữ liệu Fashionista's Instagram cá nhân do Aman Kharwal sử dụng và công bố trong bài viết “Instagram Reach Analysis using Python” đăng ngày 22/03/2022.
+Bộ dữ liệu: dữ liệu Fashionista's Instagram cá nhân do Aman Kharwal sử dụng và công bố trong bài viết “Instagram Reach Analysis using Python” đăng ngày 22/03/2022.
 
 
 ## 3. Phân tích dữ liệu:
