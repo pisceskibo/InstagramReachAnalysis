@@ -40,7 +40,8 @@ Bộ dữ liệu: dữ liệu Fashionista's Instagram cá nhân do Aman Kharwal 
 + Nhóm phạm vi tiếp cận: `From Home`* , `From Hashtags`* , `From Explore`, `From Other`
 + Nhóm từ văn bản: `Caption`, `Hashtags`
 + Nhóm tương tác: `Impressions` (biến mục tiêu), `Likes`* , `Comments`, `Shares`* , `Saves`*
-+ Trong số những người vào trang `Profile Visits`, có bao nhiêu phân trăm người quyết định `Follows` tài khoản này: $$Conversion Rate = \frac{Follows}{Profile Visits} \times 100\%$$
++ Trong số những người vào trang `Profile Visits`, có bao nhiêu phân trăm người quyết định `Follows` tài khoản này: 
+$$Conversion Rate = \frac{Follows}{Profile Visits} \times 100\%$$
 
 
 ## 4. Mô hình Instagram Reach Prediction Model:

@@ -33,7 +33,7 @@ if __name__ == "__main__":
     # predict_instagram_model(instagram_data)
     instagram_model = joblib.load("datasets/instagram_model.pkl")
 
-    # Features = [['Impressions','Saves', 'Comments', 'Shares', 'Profile Visits', 'Follows']]
+    # Features = [['Likes','Saves', 'Comments', 'Shares', 'Profile Visits', 'Follows']]
     test_features = np.array([[282.0, 233.0, 4.0, 9.0, 165.0, 54.0]])
     prediction = instagram_model.predict(test_features)
     print("Predicted Impressions:", round(prediction[0]))
