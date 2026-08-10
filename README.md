@@ -45,7 +45,14 @@ Bộ dữ liệu: dữ liệu Fashionista's Instagram cá nhân do Aman Kharwal 
 $$Conversion Rate = \frac{Follows}{Profile Visits} \times 100\%$$
 
 
-## 4. Mô hình Instagram Reach Prediction Model:
+## 4. Thuật toán Passive Aggressive Regressor (PAR):
+### 4.1. Mô hình hồi quy tuyến tính Online Learning:
++ Online Linear Regression là cách xây dựng mô hình hồi quy tuyến tính theo kiểu học tuần tự: mô hình nhận từng mẫu dữ liệu mới, dự đoán và tính sai số rồi cập nhật trọng số ngay lập tức thay vì huấn luyện toàn bộ mô hình từ đầu.
++ So sánh Online Linear Regression với Linear Regression:
+    + Linear Regression: thu thập toàn bộ tập dữ liệu và tìm các trọng số w sao cho tổng bình phương sai số đạt GTNN: $$\displaystyle \min_w \sum_{i = 1} (y_i - \hat{y_i})^2$$
+    + Online Linear Regression: thu thập tuần tự dữ liệu mới thông qua bộ dữ liệu.
+
+### 4.2. Thuật toán Passive Aggressive Regressor:
 
 
 > Tài liệu tham khảo: https://thecleverprogrammer.com/2022/03/22/instagram-reach-analysis-using-python/
