@@ -77,7 +77,7 @@ trong đó:
 Do đó:
 
 $$\hat{Impressions} = w_t \begin{pmatrix}
-Likes \\ Saves \\ Comments \\ Shares \\ ProfileVisits \\Follows
+Likes \\ Saves \\ Comments \\ Shares \\ ProfileVisits \\ Follows
 \end{pmatrix} + b$$
 
 ### 4.2.2. Sai số và hàm mất mát:
