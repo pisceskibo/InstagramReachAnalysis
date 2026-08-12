@@ -76,7 +76,16 @@ trong đó:
 
 Do đó:
 
-$$\hat{\text{Impressions}} = w_t \begin{pmatrix} \text{Likes} \\ \text{Saves} \\ \text{Comments} \\ \text{Shares} \\ \text{ProfileVisits} \\ \text{Follows} \end{pmatrix} + b$$
+```math
+\hat{\text{Impressions}} = w_t \begin{pmatrix} 
+\text{Likes} \\ 
+\text{Saves} \\ 
+\text{Comments} \\ 
+\text{Shares} \\ 
+\text{ProfileVisits} \\ 
+\text{Follows} 
+\end{pmatrix} + b
+```
 
 ### 4.2.2. Sai số và hàm mất mát:
 + Sai số: $e_t = y_t - \hat{y_t}$
