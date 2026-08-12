@@ -53,6 +53,7 @@ $$Conversion Rate = \frac{Follows}{Profile Visits} \times 100\%$$
     + Online Linear Regression: thu thập tuần tự dữ liệu mới thông qua bộ dữ liệu.
 
 ### 4.2. Thuật toán Passive Aggressive Regressor:
+Passive Aggressive Regressor (PAR) là một thuật toán hồi quy tuyến tính theo phương pháp Online Learning, được thiết kế để học dữ liệu tuần tự từng mẫu thay vì phải sử dụng toàn bộ tập dữ liệu cùng một lúc.
 | Tiêu chí                       | Hồi quy OLS (Linear Regression)               | Passive Aggressive Regressor (PAR)              |
 | ------------------------------ | --------------------------------------------- | ----------------------------------------------- |
 | **Độ phức tạp**                | $O(nd^2)$                                     | O(d) mỗi mẫu                                  |
@@ -61,6 +62,31 @@ $$Conversion Rate = \frac{Follows}{Profile Visits} \times 100\%$$
 | **Cập nhật mô hình**           | Thường phải tính toán lại trên tập dữ liệu    | Cập nhật (w) ngay sau mỗi mẫu                   |
 | **Dữ liệu lớn**                | Có thể tốn nhiều thời gian/bộ nhớ khi (n) lớn | Phù hợp với dữ liệu rất lớn                     |
 | **Mục tiêu**               | Tối thiểu hóa tổng bình phương sai số         | Cập nhật mạnh khi sai số vượt ngưỡng $\epsilon$ |
+
+### 4.2.1. Mô hình hóa bài toán:
+Cho x = [Likes, Saves, Comments, Shares, ProfileVisits, Follows] và y = Impressions với n mẫu dữ liệu. Khi đó, ta có mô hình hóa sau:
+$$\hat{y_t} = w_t^T x_t + b$$
+trong đó:
++ $x_t$: vector đặc trưng của mẫu thứ t
++ $y_t$: giá trị thực tế 
++ $\hat{y_t}$: giá trị dự đoán
++ $w_t$: vector trọng số tại thời điểm t
+
+Do đó:
+$$\hat{Impressions} = w_t \begin{pmatrix}
+Likes \\ Saves \\ Comments \\ Shares \\ ProfileVisits \\Follows
+\end{pmatrix} + b$$
+
+### 4.2.2. Sai số và hàm mất mát:
++ Sai số: $e_t = y_t - \hat{y_t}$
++ Hàm mất mát: 
+$$L_t(w, x_t, y_t) = max(0, |y_t - \hat{y_t}| - \epsilon)$$
+
+### 4.2.3. Cơ chế Passive và Aggressive:
++ Nếu $|y_t - \hat{y_t}| \leq \epsilon$ thì $L_t = 0$ => Mô hình dự đoán đủ tốt và không cần cập nhật trọng số (Passive)
++ Nếu $|y_t - \hat{y_t}| > \epsilon$ thì $L_t > 0$ => Mô hình chưa đủ chính xác và cần cập nhật lại trọng số (Aggressive)
+
+### 4.2.4. Cập nhật trọng số (Aggressive):
 
 
 > Tài liệu tham khảo: https://thecleverprogrammer.com/2022/03/22/instagram-reach-analysis-using-python/
