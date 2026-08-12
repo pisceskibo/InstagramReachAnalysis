@@ -65,7 +65,9 @@ Passive Aggressive Regressor (PAR) là một thuật toán hồi quy tuyến tí
 
 ### 4.2.1. Mô hình hóa bài toán:
 Cho x = [Likes, Saves, Comments, Shares, ProfileVisits, Follows] và y = Impressions với n mẫu dữ liệu. Khi đó, ta có mô hình hóa sau:
+
 $$\hat{y_t} = w_t^T x_t + b$$
+
 trong đó:
 + $x_t$: vector đặc trưng của mẫu thứ t
 + $y_t$: giá trị thực tế 
@@ -73,6 +75,7 @@ trong đó:
 + $w_t$: vector trọng số tại thời điểm t
 
 Do đó:
+
 $$\hat{Impressions} = w_t \begin{pmatrix}
 Likes \\ Saves \\ Comments \\ Shares \\ ProfileVisits \\Follows
 \end{pmatrix} + b$$
