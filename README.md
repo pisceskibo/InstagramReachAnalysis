@@ -49,10 +49,18 @@ $$Conversion Rate = \frac{Follows}{Profile Visits} \times 100\%$$
 ### 4.1. Mô hình hồi quy tuyến tính Online Learning:
 + Online Linear Regression là cách xây dựng mô hình hồi quy tuyến tính theo kiểu học tuần tự: mô hình nhận từng mẫu dữ liệu mới, dự đoán và tính sai số rồi cập nhật trọng số ngay lập tức thay vì huấn luyện toàn bộ mô hình từ đầu.
 + So sánh Online Linear Regression với Linear Regression:
-    + Linear Regression: thu thập toàn bộ tập dữ liệu và tìm các trọng số w sao cho tổng bình phương sai số đạt GTNN: $$\displaystyle \min_w \sum_{i = 1} (y_i - \hat{y_i})^2$$
+    + Linear Regression: thu thập toàn bộ tập dữ liệu và tìm các trọng số w sao cho tổng bình phương sai số đạt GTNN: $$\displaystyle \min_w \sum_{i = 1} (y_i - \hat{y_i})^2$$ với $w_i = (X^T X)^{-1} X^T y_i$
     + Online Linear Regression: thu thập tuần tự dữ liệu mới thông qua bộ dữ liệu.
 
 ### 4.2. Thuật toán Passive Aggressive Regressor:
+| Tiêu chí                       | Hồi quy OLS (Linear Regression)               | Passive Aggressive Regressor (PAR)              |
+| ------------------------------ | --------------------------------------------- | ----------------------------------------------- |
+| **Độ phức tạp**                | $O(nd^2)$                                     | O(d) mỗi mẫu                                  |
+| **Cách xử lý dữ liệu**         | Xử lý toàn bộ tập dữ liệu                     | Xử lý từng mẫu tuần tự                          |
+| **Bộ nhớ**                     | Cần lưu ma trận thiết kế $(n \times d)$         | Chủ yếu chỉ lưu vector trọng số (w)             |
+| **Cập nhật mô hình**           | Thường phải tính toán lại trên tập dữ liệu    | Cập nhật (w) ngay sau mỗi mẫu                   |
+| **Dữ liệu lớn**                | Có thể tốn nhiều thời gian/bộ nhớ khi (n) lớn | Phù hợp với dữ liệu rất lớn                     |
+| **Mục tiêu**               | Tối thiểu hóa tổng bình phương sai số         | Cập nhật mạnh khi sai số vượt ngưỡng $\epsilon$ |
 
 
 > Tài liệu tham khảo: https://thecleverprogrammer.com/2022/03/22/instagram-reach-analysis-using-python/
