@@ -5,6 +5,7 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 import pandas as pd
 import numpy as np
 import joblib
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import PassiveAggressiveRegressor, LinearRegression
 
@@ -19,7 +20,12 @@ def predict_passive_aggressive_regressor_model(x, y):
     # Split dataset (80% train + 20% test)
     xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size=0.2, random_state=42)
 
-    model = PassiveAggressiveRegressor()
+    # Chuẩn hóa dữ liệu
+    scaler = StandardScaler()
+    xtrain = scaler.fit_transform(xtrain)
+    xtest = scaler.transform(xtest)
+
+    model = PassiveAggressiveRegressor(C=1.0, epsilon=0.1)
     model.fit(xtrain, ytrain)
     score = model.score(xtest, ytest)
 
