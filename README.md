@@ -100,9 +100,15 @@ $$L_t(w, x_t, y_t) = max(0, |y_t - \hat{y_t}| - \epsilon)$$
 Bài toán tối ưu tại mỗi bước thỏa mãn:
 + Cho mẫu thứ t có $\hat{y_t} = w_t^T x_t + b$ và hàm mất mát $L_t(w, x_t, y_t) = max(0, |y_t - \hat{y_t}| - \epsilon)$
 + Cập nhật vector trọng số với siêu tham số C > 0:
+
 $$w_{t + 1} = \argmin_w \frac{1}{2} ||w - w_t||^2 + CL_{t}(w, x_t, y_t)$$
-+ Cập nhật hệ số: $$\tau_t = \frac{L_t(w_t, x_t, y_t)}{||x_t||^2 + \frac{1}{2C}}$$
+
++ Cập nhật hệ số: 
+
+$$\tau_t = \frac{L_t(w_t, x_t, y_t)}{||x_t||^2 + \frac{1}{2C}}$$
+
 + Quy tắc cập nhật trọng số (bước cuối cùng): 
+
 $$w_{t + 1} = w_t + \tau_t \cdot sgn(y_t - w_t^T x_t)x_t$$
 
 > Tài liệu tham khảo: https://thecleverprogrammer.com/2022/03/22/instagram-reach-analysis-using-python/
