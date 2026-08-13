@@ -111,4 +111,22 @@ $$\tau_t = \frac{L_t(w_t, x_t, y_t)}{||x_t||^2 + \frac{1}{2C}}$$
 
 $$w_{t + 1} = w_t + \tau_t \cdot sgn(y_t - w_t^T x_t)x_t$$
 
-> Tài liệu tham khảo: https://thecleverprogrammer.com/2022/03/22/instagram-reach-analysis-using-python/
+## 5. Thông số đánh giá mô hình:
+### 5.1. Coefficient of Determination:
+Mô hình dữ liệu tốt đến đâu, khi $R^2$ càng cao thì mô hình càng tốt. Giúp mô hình giải thích và dự đoán sự biến thiên của Instagram Impressions tốt hơn.
+
+$$R^2 = 1 - \frac{\displaystyle \sum_{i = 1}^n (y_i - \hat{y_i})^2}{\displaystyle \sum_{i = 1}^n (y_i - \overline{y_i})^2}$$
+
+### 5.2. Mean Absolute Error:
+Trung bình dự đoán sai lệch bao nhiêu, sai lệch càng thấp thì mô hình càng tốt.
+
+$$MAE = \frac{1}{n} \displaystyle \sum_{i = 1}^n |y_i - \hat{y_i}|$$
+
+### 5.3. So sánh thông số:
+| Mô hình                          | R² Score ↑ |       MAE ↓ |
+| -------------------------------- | ---------: | ----------: |
+| **Passive Aggressive Regressor** |     0.8789 | **1004.62** |
+| **Linear Regression**            | **0.8895** |     1058.48 |
+
+## 6. Tài liệu tham khảo:
+Tài liệu tham khảo: https://thecleverprogrammer.com/2022/03/22/instagram-reach-analysis-using-python/
