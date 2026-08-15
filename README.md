@@ -58,19 +58,19 @@ Passive Aggressive Regressor (PAR) là một thuật toán hồi quy tuyến tí
 | ------------------------------ | --------------------------------------------- | ----------------------------------------------- |
 | **Độ phức tạp**                | $O(nd^2)$                                     | O(d) mỗi mẫu                                  |
 | **Cách xử lý dữ liệu**         | Xử lý toàn bộ tập dữ liệu                     | Xử lý từng mẫu tuần tự                          |
-| **Bộ nhớ**                     | Cần lưu ma trận thiết kế $(n \times d)$         | Chủ yếu chỉ lưu vector trọng số (w)             |
-| **Cập nhật mô hình**           | Thường phải tính toán lại trên tập dữ liệu    | Cập nhật (w) ngay sau mỗi mẫu                   |
+| **Bộ nhớ**                     | Cần lưu ma trận thiết kế $(n \times d)$         | Chủ yếu chỉ lưu vector trọng số w             |
+| **Cập nhật mô hình**           | Thường phải tính toán lại trên tập dữ liệu    | Cập nhật w ngay sau mỗi mẫu                   |
 | **Dữ liệu lớn**                | Có thể tốn nhiều thời gian/bộ nhớ khi (n) lớn | Phù hợp với dữ liệu rất lớn                     |
 | **Mục tiêu**               | Tối thiểu hóa tổng bình phương sai số         | Cập nhật mạnh khi sai số vượt ngưỡng $\epsilon$ |
 
 ### 4.2.1. Mô hình hóa bài toán:
 Cho x = [Likes, Saves, Comments, Shares, ProfileVisits, Follows] và y = Impressions với n mẫu dữ liệu. Khi đó, ta có mô hình hóa sau:
 
-$$\hat{y_t} = w_t^T x_t + b$$
+$$\hat{y_t} = w_t^T x_t + b_t$$
 
 trong đó:
 + $x_t$: vector đặc trưng của mẫu thứ t
-+ $y_t$: giá trị thực tế 
++ $y_t$: giá trị thực tế
 + $\hat{y_t}$: giá trị dự đoán
 + $w_t$: vector trọng số tại thời điểm t
 
@@ -84,7 +84,7 @@ Do đó:
 \text{Shares} \\ 
 \text{ProfileVisits} \\ 
 \text{Follows} 
-\end{pmatrix} + b
+\end{pmatrix} + b_t
 ```
 
 ### 4.2.2. Sai số và hàm mất mát:
@@ -98,7 +98,7 @@ $$L_t(w, x_t, y_t) = max(0, |y_t - \hat{y_t}| - \epsilon)$$
 
 ### 4.2.4. Cập nhật trọng số (Aggressive):
 Bài toán tối ưu tại mỗi bước thỏa mãn:
-+ Cho mẫu thứ t có $\hat{y_t} = w_t^T x_t + b$ và hàm mất mát $L_t(w, x_t, y_t) = max(0, |y_t - \hat{y_t}| - \epsilon)$
++ Cho mẫu thứ t có $\hat{y_t} = w_t^T x_t + b_t$ và hàm mất mát $L_t(w, x_t, y_t) = max(0, |y_t - \hat{y_t}| - \epsilon)$
 + Cập nhật vector trọng số với siêu tham số C > 0:
 
 $$w_{t + 1} = \argmin_w \frac{1}{2} ||w - w_t||^2 + CL_{t}(w, x_t, y_t)$$
