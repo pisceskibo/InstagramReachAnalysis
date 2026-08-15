@@ -10,7 +10,6 @@ This script:
 Usage: python tune_C_and_plot.py
 """
 from pathlib import Path
-import time
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
