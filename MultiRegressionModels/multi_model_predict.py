@@ -2,6 +2,9 @@
 import time
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 from sklearn.linear_model import (
     LinearRegression,
     PassiveAggressiveRegressor,
@@ -69,6 +72,34 @@ def compare_models(x, y):
     # Tổng hợp bảng kết quả
     df_results = pd.DataFrame(results).sort_values(by="R² Score", ascending=False)
     print(df_results.to_string(index=False))
+    plot_results(df_results)
+
+
+# Draw Plots
+def plot_results(df_results):
+    """Hàm vẽ biểu đồ so sánh giữa các mô hình"""
+    sns.set_theme(style="whitegrid")
+    fig, axes = plt.subplots(1, 2, figsize=(18, 5))
+
+    # Biểu đồ 1: R² Score (Càng cao càng tốt)
+    sns.barplot(data=df_results, x="R² Score", y="Model", ax=axes[0], palette="Blues_r")
+    axes[0].set_title("So sánh R² Score (Càng cao càng tốt)", fontsize=12, fontweight='bold')
+    axes[0].set_xlim(0, 1)
+    for p in axes[0].patches:
+        axes[0].annotate(f"{p.get_width():.4f}", (p.get_width() - 0.12, p.get_y() + p.get_height() / 2),
+                         ha='center', va='center', color='white', fontweight='bold')
+
+    # Biểu đồ 2: MAE (Càng thấp càng tốt)
+    sns.barplot(data=df_results, x="MAE", y="Model", ax=axes[1], palette="Reds_r")
+    axes[1].set_title("So sánh MAE (Càng thấp càng tốt)", fontsize=12, fontweight='bold')
+    for p in axes[1].patches:
+        axes[1].annotate(f"{p.get_width():.1f}", (p.get_width() * 0.7, p.get_y() + p.get_height() / 2),
+                         ha='center', va='center', color='black', fontweight='bold')
+
+    # Tối ưu khoảng cách giữa các đồ thị
+    plt.tight_layout()
+    plt.savefig("images/model_comparison.png", dpi=300)
+    plt.show()
 
 
 if __name__ == "__main__":
