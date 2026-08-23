@@ -1,0 +1,7 @@
+                   Model  R² Score         MAE        RMSE  Training Time (ms)  Predict Time (ms)
+        Ridge Regression  0.889457 1058.468760 1654.749803              7.6296             0.9402
+ Linear Regression (OLS)  0.889456 1058.475524 1654.756084              4.7188             0.5955
+        Lasso Regression  0.889456 1058.450339 1654.757308             88.5277             0.9804
+           SGD Regressor  0.888656 1053.740154 1660.732044             29.6240             1.3467
+Passive Aggressive (PAR)  0.877722 1006.839101 1740.367728             14.9828             0.6659
+     Logistic Regression  0.761503 1461.911779 2430.569175         251763.9778           253.7498
