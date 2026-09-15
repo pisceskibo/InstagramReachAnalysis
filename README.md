@@ -130,3 +130,16 @@ $$MAE = \frac{1}{n} \displaystyle \sum_{i = 1}^n |y_i - \hat{y_i}|$$
 
 ## 6. Tài liệu tham khảo:
 Tài liệu tham khảo: https://thecleverprogrammer.com/2022/03/22/instagram-reach-analysis-using-python/
+
+## 7. So sánh PAR và PAR + Ridge:
+Notebook [`compare_par_ridge.ipynb`](compare_par_ridge.ipynb) và script [`compare_par_ridge.py`](compare_par_ridge.py) triển khai:
+- Custom **Passive Aggressive Regressor (PA-II)** và **PAR + Ridge** bằng NumPy/Numba
+- Thử nghiệm nhiều tham số `C`, `epsilon`, `alpha`, `max_iter`
+- Biểu đồ Objective vs Iterations / Time (so sánh setup tốt nhất)
+- Đối chiếu hàm mục tiêu + thời gian với scikit-learn (default)
+
+Chạy nhanh:
+```bash
+python compare_par_ridge.py
+```
+Biểu đồ lưu trong thư mục `plots_par_ridge/`.
