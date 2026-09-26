@@ -5,3 +5,17 @@
            SGD Regressor  0.888656 1053.740154 1660.732044             19.3408             0.7470
 Passive Aggressive (PAR)  0.877722 1006.839101 1740.367728             15.2224             0.5908
      Logistic Regression  0.761503 1461.911779 2430.569175         249753.8794           266.7857
+
+
+                   Model  R² Score         MAE        RMSE  Training Time (ms)  Predict Time (ms)
+           SGD Regressor  0.889463 1063.664258 1654.703472            101.7203             3.4188
+ Linear Regression (OLS)  0.889456 1058.475524 1654.756084              6.2289             0.7026
+Passive Aggressive (PAR)  0.877722 1006.839101 1740.367728             17.6893             0.6783
+     Logistic Regression  0.761503 1461.911779 2430.569175         496117.7854           437.6691
+
+
+                        Model  R² Score        RMSE  Training Time (ms)  Predict Time (ms)
+                Nesterov  0.889456 1654.755890            139.4333             0.7320
+ Linear Regression (OLS)  0.889456 1654.756084              5.0271             0.5591
+Passive Aggressive (PAR)  0.877722 1740.367728             18.0194             0.7190
+        Gradient Descent  0.834942 2022.017992             14.5431             0.5752
